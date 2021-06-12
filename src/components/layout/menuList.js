@@ -1,44 +1,35 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import { Link } from "react-router-dom";
+import React from "react";
+import { useStyles } from "./styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 
-
-
-const useStyles = makeStyles(() => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-  },
-}));
-
-export default function MenuList() {
+export default function NavBarComponent() {
   const classes = useStyles();
-  
-  
+
+  const history = useHistory();
+
+  function handleClick(path) {
+    history.push(path);
+  }
 
   return (
-    <div className={classes.root}>
-      <List component="nav" aria-label="main mailbox folders">
-        <ListLink path={'/'} icon={ListAltIcon} label={'Home'} />
-        <ListLink path={'/blog'} icon={ListAltIcon} label={'Blog'} />
-        {/* <ListLink path={EXPENSE_PAGE} icon={ListAltIcon} label={t('expense')} selected={ pathname === EXPENSE_PAGE}/> */}
-      </List>
-    </div>
-  );
-}
+    <AppBar position="static">
+      <Toolbar>
+        <Typography
+          variant="h6"
+          className={classes.title}
+          onClick={(e) => handleClick("/")}
+        >
+          DeporBlogs
+        </Typography>
 
-function ListLink ({path, icon: Icon, label, selected}){
-  return(
-    <ListItem button component={Link} to={path} selected={selected}>
-      <ListItemIcon>
-        <Icon />
-      </ListItemIcon>
-      <ListItemText primary={label} />
-    </ListItem >
-  )
+        <Button color="inherit" onClick={(e) => handleClick("/blog")}>
+          Nuevo blog
+        </Button>
+      </Toolbar>
+    </AppBar>
+  );
 }
