@@ -39,7 +39,7 @@ export default function CardBlog({ data, handleDelete }) {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title}>{data.title}</Typography>
+        <Typography className={classes.title}>{data.title} <Typography component={"span"} variant="caption" color="textSecondary" >({data.category}) </Typography> </Typography>
 
         <Typography className={classes.pos} color="textSecondary">
           {data.autor}
