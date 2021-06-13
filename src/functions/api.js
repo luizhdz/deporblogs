@@ -1,4 +1,5 @@
 const API_REST = "http://143.198.109.66/api";
+//const API_REST = "http://localhost:4000/api";
 
 export function api({ endpoint, method = "GET", payload }) {
   const settings = getSettings({ method, payload });
