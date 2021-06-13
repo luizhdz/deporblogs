@@ -26,6 +26,9 @@ export default function NavBarComponent() {
           DeporBlogs
         </Typography>
 
+        <Button color="inherit" onClick={(e) => handleClick("/category")}>
+          Categorias
+        </Button>
         <Button color="inherit" onClick={(e) => handleClick("/blog")}>
           Nuevo blog
         </Button>

@@ -6,6 +6,7 @@ import HomeView from "../views/home";
 import BlogView from "../views/blog";
 
 import NotFound from "../views/notFound";
+import CategoryView from "../views/category";
 
 class Routing extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class Routing extends React.Component {
           <Route path={'/'} exact component={HomeView} />
           <Route path={'/blog'} exact component={BlogView} />          
           <Route path={'/blog/:id'} exact component={BlogView} />          
+          <Route path={'/category'} exact component={CategoryView} />          
           <Route path="*" component={NotFound} />
         </Switch>
     );
