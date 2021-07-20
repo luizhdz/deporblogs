@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
+import { removeStorage } from "../../functions/storage";
 
 export default function NavBarComponent() {
   const classes = useStyles();
@@ -13,6 +14,11 @@ export default function NavBarComponent() {
 
   function handleClick(path) {
     history.push(path);
+  }
+
+  function logout(){
+    removeStorage({name: "token"})
+    window.location.reload()
   }
 
   return (
@@ -32,6 +38,10 @@ export default function NavBarComponent() {
         <Button color="inherit" onClick={(e) => handleClick("/blog")}>
           Nuevo blog
         </Button>
+        <Button variant="outlined" color="inherit" onClick={(e) => logout()}>
+          Logout
+        </Button>
+
       </Toolbar>
     </AppBar>
   );

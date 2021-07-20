@@ -13,6 +13,7 @@ class Routing extends React.Component {
     return (
         <Switch>
           <Route path={'/'} exact component={HomeView} />
+          <Route path={'/home'} exact component={HomeView} />
           <Route path={'/blog'} exact component={BlogView} />          
           <Route path={'/blog/:id'} exact component={BlogView} />          
           <Route path={'/category'} exact component={CategoryView} />          
